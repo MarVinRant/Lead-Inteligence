@@ -1,0 +1,2 @@
+import { cn } from '../../lib/utils';
+export function Badge({children,tone='default'}:{children:React.ReactNode;tone?:'default'|'gold'|'ice'|'green'|'muted'}){return <span className={cn('inline-flex rounded-full border px-2 py-1 text-[11px] font-semibold tracking-wide',tone==='gold'&&'border-gold/30 bg-gold/10 text-gold',tone==='ice'&&'border-ice/30 bg-ice/10 text-ice',tone==='green'&&'border-emerald-400/30 bg-emerald-400/10 text-emerald-300',tone==='muted'&&'border-line bg-white/[.03] text-muted',tone==='default'&&'border-line bg-panel text-muted')}>{children}</span>}

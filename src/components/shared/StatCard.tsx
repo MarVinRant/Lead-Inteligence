@@ -1,0 +1,2 @@
+import { ArrowRight } from 'lucide-react'; import { Card } from '../ui/Card';
+export function StatCard({ label, value, detail, gold = false }: { label: string; value: string; detail: string; gold?: boolean }) { return <Card className="p-4 sm:p-5"><div className="flex justify-between text-xs text-muted"><span>{label}</span><ArrowRight size={15} className={gold ? 'text-gold' : 'text-ice'} /></div><div className="mt-3 text-2xl font-semibold sm:mt-4 sm:text-3xl">{value}</div><div className="mt-2 text-xs text-muted">{detail}</div></Card>; }

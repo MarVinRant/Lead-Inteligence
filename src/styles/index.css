@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { color: #f0f5f8; background: #071525; font-family: Inter, sans-serif; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.grid-bg { background-image: linear-gradient(rgba(158,232,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(158,232,255,.035) 1px, transparent 1px); background-size: 32px 32px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

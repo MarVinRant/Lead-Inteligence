@@ -1,0 +1,55 @@
+{
+  "name": "RT | LI | Lead Intake | V1",
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true
+  },
+  "nodes": [
+    {
+      "name": "Lead Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c5789ab0-af7e-451d-a7d3-8210e52d70aa",
+        "responseMode": "onReceived"
+      }
+    },
+    {
+      "name": "Normalize Lead Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "See the Code node in n8n for the sanitized normalization implementation."
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "parameters": {
+        "method": "POST",
+        "url": "https://fsfxtongcwemaqneitvl.supabase.co/rest/v1/rpc/li_ingest_lead",
+        "authentication": "predefinedCredentialType",
+        "credential": "RT | LI | Supabase Backend",
+        "body": "Sanitized RPC payload mapping; secret omitted from export."
+      }
+    }
+  ],
+  "connections": {
+    "Lead Intake Webhook": {
+      "main": [
+        [{ "node": "Normalize Lead Payload", "type": "main", "index": 0 }]
+      ]
+    },
+    "Normalize Lead Payload": {
+      "main": [[{ "node": "HTTP Request", "type": "main", "index": 0 }]]
+    }
+  },
+  "credentials": {},
+  "meta": {
+    "exportType": "sanitized",
+    "note": "Credential references and secrets intentionally omitted. Re-export from n8n when the final workflow is expanded."
+  }
+}

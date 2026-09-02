@@ -1,0 +1,4 @@
+export type LeadSegment = 'Oficina & mecânica' | 'Barbearia & beleza' | 'Nicho emergente';
+export type LeadStage = 'Novo' | 'Analisando' | 'Qualificado' | 'Contato preparado' | 'Contatado' | 'Respondeu' | 'Interessado' | 'Demonstração' | 'Negociação' | 'Fechado' | 'Sem resposta' | 'Não interessado' | 'Adiado' | 'Perdido' | 'Reativação futura';
+export type Priority = 'Alta' | 'Média' | 'Baixa';
+export interface Lead { id: string; company: string; owner: string; city: string; segment: LeadSegment; stage: LeadStage; score: number; priority: Priority; website: string; lastActivity: string; nextAction: string; painPoints: string[]; opportunities: string[]; recommendedService: string; recommendedDemo: string; diagnosis: string; objections: string[]; commercialMemory: string; history: { date: string; title: string; note: string }[]; }

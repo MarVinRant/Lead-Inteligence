@@ -1,0 +1,2 @@
+import { Navigate, Outlet, useLocation } from 'react-router-dom'; import { useAuth } from './AuthProvider';
+export function ProtectedRoute(){const {user,loading}=useAuth();const location=useLocation();if(loading)return <div className="grid min-h-screen place-items-center bg-navy text-sm text-muted">Carregando sessão…</div>;return user?<Outlet/>:<Navigate to="/login" replace state={{from:location}}/>}
